@@ -10,10 +10,10 @@ import sys
 load_dotenv()
 
 SERVER_HOST = os.getenv("SERVER_HOST")
-SERVER_PORT = int(os.getenv("SERVER_PORT", "22"))
+SERVER_PORT = int(os.getenv("SERVER_PORT"))
 SERVER_USER = os.getenv("SERVER_USER")
 SERVER_PASSWORD = os.getenv("SERVER_PASSWORD")
-LOCAL_PORT = int(os.getenv("POSTGRES_PORT", "5434"))
+LOCAL_PORT = int(os.getenv("POSTGRES_PORT"))
 
 def wait_for_port(port, timeout=15):
     start = time.time()

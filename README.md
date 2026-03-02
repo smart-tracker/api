@@ -1,11 +1,3 @@
-# Smart Tracker API
-
-FastAPI бэкенд для проекта Smart Tracker.
-
-## Требования
-- Python 3.11+
-- Доступ к серверу по SSH
-
 ## Установка
 1. Клонируй репозиторий
 2. Установи зависимости: `pip install -r requirements.txt`
