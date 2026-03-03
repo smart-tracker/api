@@ -28,7 +28,6 @@ class TestUserRegistration:
         user = result.scalar_one_or_none()
         assert user is not None
         assert user.first_name == valid_user_data["first_name"]
-        assert user.last_name == valid_user_data["last_name"]
         assert user.email == valid_user_data["email"]
         assert user.nickname == valid_user_data["nickname"]
         assert user.is_active is False  
@@ -93,7 +92,7 @@ class TestUserRegistration:
         assert len(error_data["detail"]) >= 5
         
         fields_with_errors = {err["loc"][1] for err in error_data["detail"] if len(err["loc"]) > 1}
-        expected_fields = {"first_name", "last_name", "email", "nickname", "password", "birth_date", "gender"}
+        expected_fields = {"first_name", "email", "nickname", "password", "birth_date", "gender"}
         assert fields_with_errors.intersection(expected_fields) == expected_fields
     
     async def test_mismatched_passwords(self, client: AsyncClient, mismatched_passwords_data: dict):

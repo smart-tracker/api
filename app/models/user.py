@@ -7,8 +7,8 @@ class User(Base):
 
     user_id = Column(Integer, primary_key=True, autoincrement=True)
     first_name = Column(String(100), nullable=False)
-    last_name = Column(String(100), nullable=False)
-    middle_name = Column(String(100), nullable=True)
+    last_name = Column(String(100), nullable=True)    
+    middle_name = Column(String(100), nullable=True)  
     birth_date = Column(Date, nullable=False)
     weight = Column(Float, nullable=True)
     height = Column(Float, nullable=True)

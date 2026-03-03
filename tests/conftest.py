@@ -65,8 +65,6 @@ def valid_user_data():
     """Валидные данные пользователя"""
     return {
         "first_name": "Иван",
-        "last_name": "Иванов",
-        "middle_name": "Иванович",
         "birth_date": "1990-01-01",
         "gender": "male",
         "email": "test@example.com",
@@ -79,9 +77,7 @@ def valid_user_data():
 def invalid_email_data():
     """Данные с невалидным email"""
     return {
-        "first_name": "Иван",
-        "last_name": "Иванов",
-        "middle_name": "Иванович",
+        "first_name": "Иван",   
         "birth_date": "1990-01-01",
         "gender": "male",
         "email": "not-an-email",
@@ -95,8 +91,6 @@ def empty_fields_data():
     """Данные с пустыми полями"""
     return {
         "first_name": "",
-        "last_name": "",
-        "middle_name": "",
         "birth_date": "",
         "gender": "",
         "email": "",
@@ -110,8 +104,6 @@ def mismatched_passwords_data():
     """Данные с несовпадающими паролями"""
     return {
         "first_name": "Иван",
-        "last_name": "Иванов",
-        "middle_name": "Иванович",
         "birth_date": "1990-01-01",
         "gender": "male",
         "email": "test@example.com",

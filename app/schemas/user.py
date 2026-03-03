@@ -4,8 +4,6 @@ from typing import Optional
 
 class UserBase(BaseModel):
     first_name: str = Field(..., min_length=1, max_length=100)
-    last_name: str = Field(..., min_length=1, max_length=100)
-    middle_name: Optional[str] = Field(None, max_length=100)
     birth_date: date
     gender: str = Field(..., pattern="^(male|female)$")
     email: EmailStr

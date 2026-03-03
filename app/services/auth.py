@@ -28,8 +28,6 @@ class AuthService:
         
         db_user = User(
             first_name=user_data.first_name,
-            last_name=user_data.last_name,
-            middle_name=user_data.middle_name,
             birth_date=user_data.birth_date,
             gender=user_data.gender,
             email=user_data.email,
