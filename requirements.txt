@@ -6,3 +6,12 @@ asyncpg
 python-dotenv
 pydantic-settings
 paramiko
+passlib[bcrypt]
+python-jose[cryptography]
+celery
+email-validator
+itsdangerous
+pytest
+pytest-asyncio
+httpx
+aiosqlite

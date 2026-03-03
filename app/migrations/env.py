@@ -15,6 +15,7 @@ if config.config_file_name is not None:
     fileConfig(config.config_file_name)
 
 from app.models.user import User
+from app.models.email_verification import EmailVerification
 from app.database import Base
 target_metadata = Base.metadata
 

@@ -1,4 +1,5 @@
-from sqlalchemy import Column, Integer, String, Float, Date
+from sqlalchemy import Column, Integer, String, Float, Date, Boolean, DateTime
+from sqlalchemy.sql import func
 from app.database import Base
 
 class User(Base):
@@ -7,13 +8,16 @@ class User(Base):
     user_id = Column(Integer, primary_key=True, autoincrement=True)
     first_name = Column(String(100), nullable=False)
     last_name = Column(String(100), nullable=False)
-    middle_name = Column(String(100), nullable=False)
+    middle_name = Column(String(100), nullable=True)
     birth_date = Column(Date, nullable=False)
-    weight = Column(Float)
-    height = Column(Float)
+    weight = Column(Float, nullable=True)
+    height = Column(Float, nullable=True)
     gender = Column(String(10), nullable=False)
-    email = Column(String(255), nullable=False)
+    email = Column(String(255), nullable=False, unique=True)
     password = Column(String(255), nullable=False)
-    nickname = Column(String(100), nullable=False)
-    jwt_session = Column(String(500))
-    jwt_reload = Column(String(500))
+    nickname = Column(String(100), nullable=False, unique=True)
+    jwt_session = Column(String(500), nullable=True)
+    jwt_reload = Column(String(500), nullable=True)
+    is_active = Column(Boolean, default=False)
+    created_at = Column(DateTime(timezone=True), server_default=func.now())
+    updated_at = Column(DateTime(timezone=True), onupdate=func.now())

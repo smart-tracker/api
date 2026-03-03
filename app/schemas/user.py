@@ -1,0 +1,36 @@
+from pydantic import BaseModel, EmailStr, Field, field_validator
+from datetime import date, datetime
+from typing import Optional
+
+class UserBase(BaseModel):
+    first_name: str = Field(..., min_length=1, max_length=100)
+    last_name: str = Field(..., min_length=1, max_length=100)
+    middle_name: Optional[str] = Field(None, max_length=100)
+    birth_date: date
+    gender: str = Field(..., pattern="^(male|female)$")
+    email: EmailStr
+    nickname: str = Field(..., min_length=3, max_length=100)
+
+class UserCreate(UserBase):
+    password: str = Field(..., min_length=8)
+    confirm_password: str
+    
+    @field_validator('confirm_password')
+    @classmethod
+    def passwords_match(cls, v: str, info):
+        if 'password' in info.data and v != info.data['password']:
+            raise ValueError('Passwords do not match')
+        return v
+    
+
+class UserResponse(UserBase):
+    user_id: int
+    is_active: bool = False
+    created_at: Optional[datetime]
+    
+    class Config:
+        from_attributes = True
+
+class UserLogin(BaseModel):
+    email: EmailStr
+    password: str
