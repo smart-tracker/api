@@ -7,7 +7,7 @@ class Settings(BaseSettings):
     POSTGRES_USER: Optional[str] = None
     POSTGRES_PASSWORD: Optional[str] = None
     POSTGRES_DB: Optional[str] = None
-    POSTGRES_PORT: Optional[str] = "5434"
+    POSTGRES_PORT: Optional[str] = "5432"
     
     SERVER_HOST: Optional[str] = None
     SERVER_PORT: Optional[int] = None
